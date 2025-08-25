@@ -1,67 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coming Soon</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ammpeak — Coming Soon</title>
+  <meta name="description" content="AmmPeak — Something great is coming soon." />
+  <meta property="og:title" content="AmmPeak — Coming Soon" />
+  <meta property="og:description" content="We’re building something new. Stay tuned!" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
   <style>
+    :root {
+      --bg1: #0ea5e9; /* sky-500 */
+      --bg2: #22d3ee; /* cyan-400 */
+      --txt: #0b1220;
+      --card: rgba(255, 255, 255, 0.9);
+      --muted: #475569; /* slate-600 */
+      --ring: rgba(14,165,233,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
       margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
-      color: white;
-      text-align: center;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--txt);
+      background: radial-gradient(1200px 800px at 20% 10%, var(--bg2), transparent 60%),
+                  radial-gradient(1000px 900px at 100% 0%, var(--bg1), transparent 40%),
+                  linear-gradient(135deg, #e0f2fe, #cffafe 40%, #e0f2fe);
+      display: grid;
+      place-items: center;
+      padding: 32px 16px;
     }
-    .container {
-      max-width: 600px;
-      padding: 20px;
+    .card {
+      width: 100%;
+      max-width: 760px;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(2, 8, 23, 0.14), inset 0 1px 0 rgba(255,255,255,0.6);
+      padding: 28px;
+      border: 1px solid rgba(14,165,233,.2);
     }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .logo {
+      width: 44px; height: 44px; border-radius: 12px; flex: 0 0 auto;
+      display: grid; place-items: center; font-weight: 800; letter-spacing: .5px;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2)); color: white;
+      box-shadow: 0 6px 16px rgba(14,165,233,.45);
     }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
+    h1 { margin: 0; font-size: clamp(28px, 5vw, 40px); line-height: 1.1; }
+    p.lead { margin: 10px 0 22px; color: var(--muted); font-size: clamp(14px, 2.5vw, 18px); }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+    .btn {
+      appearance: none; cursor: pointer; border: 0; border-radius: 12px; font-weight: 700;
+      padding: 12px 16px; line-height: 1; transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 6px 16px rgba(14,165,233,.35);
+      display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
     }
-    .email-box {
-      margin-top: 20px;
-    }
-    input[type="email"] {
-      padding: 10px;
-      border: none;
-      border-radius: 4px;
-      width: 70%;
-      max-width: 250px;
-      margin-right: 10px;
-    }
-    button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      background: #fff;
-      color: #333;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background: #eee;
-    }
+    .btn.primary { background: linear-gradient(135deg, var(--bg1), var(--bg2)); color: #fff; }
+    .btn.primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(14,165,233,.45); }
+
+    .btn.secondary { background: #fff; color: var(--txt); border: 1px solid rgba(2,6,23,.08); box-shadow: 0 2px 10px rgba(2,8,23,.06); }
+    .btn.secondary:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(2,8,23,.12); }
+
+    .row { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 720px){ .row { grid-template-columns: 1.4fr .9fr; } }
+
+    .panel { background: white; border: 1px solid rgba(2,6,23,.06); border-radius: 16px; padding: 18px; }
+    .panel h3 { margin: 0 0 10px; font-size: 16px; }
+    .meta { display: grid; gap: 8px; font-size: 14px; color: var(--muted); }
+    .meta code { background: #f1f5f9; padding: 2px 6px; border-radius: 6px; }
+
+    footer { margin-top: 18px; text-align: center; color: var(--muted); font-size: 13px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Coming Soon</h1>
-    <p>We’re working hard to launch something amazing. Stay tuned!</p>
-    <div class="email-box">
-      <input type="email" placeholder="Enter your email" />
-      <button>Notify Me</button>
+  <main class="card" role="main" aria-labelledby="hero-title">
+    <header>
+      <div class="logo" aria-hidden="true">AP</div>
+      <div>
+        <h1 id="hero-title">AmmPeak — Coming Soon</h1>
+        <p class="lead">We’re crafting something new for Jordan and beyond. In the meantime, reach out — we’d love to hear from you.</p>
+      </div>
+    </header>
+
+    <div class="row">
+      <section class="panel" aria-labelledby="cta-heading">
+        <h3 id="cta-heading">Get in touch</h3>
+        <p class="lead" style="margin:0 0 12px">Have a question or want to collaborate? Drop us a line.</p>
+        <div class="actions">
+          <!-- Contact button opens the visitor's mail app with a prefilled subject/body -->
+          <a class="btn primary" id="contactBtn"
+             href="mailto:info@ammpeak.com?subject=Inquiry%20about%20AmmPeak&body=Hi%20AmmPeak%20team,%0D%0A%0D%0AMy%20name%20is%20[Your%20Name].%20I%E2%80%99d%20like%20to%20know%20more%20about...%0D%0A%0D%0AThanks!"
+             rel="noopener">
+            <span aria-hidden="true">✉️</span> Contact Us
+          </a>
+          <!-- Optional: copy email to clipboard for users without a mail client -->
+          <button class="btn secondary" id="copyBtn" type="button"><span aria-hidden="true">📋</span> Copy Email</button>
+        </div>
+      </section>
+
+      <aside class="panel" aria-labelledby="status-heading">
+        <h3 id="status-heading">Status</h3>
+        <div class="meta">
+          <div>Website: <strong>Under construction</strong></div>
+          <div>Target launch: <strong>TBD</strong></div>
+          <div>Email: <code>info@ammpeak.com</code></div>
+        </div>
+      </aside>
     </div>
-  </div>
+
+    <footer>
+      © <span id="year"></span> AmmPeak. All rights reserved.
+    </footer>
+  </main>
+
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Copy email helper
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('info@ammpeak.com');
+        const btn = document.getElementById('copyBtn');
+        const prev = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = prev, 1200);
+      } catch (e) {
+        alert('Email: info@ammpeak.com');
+      }
+    });
+  </script>
 </body>
 </html>
